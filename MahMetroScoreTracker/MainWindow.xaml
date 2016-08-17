@@ -1,12 +1,46 @@
-﻿<Window x:Class="MahMetroScoreTracker.MainWindow"
+﻿<controls:MetroWindow x:Class="MahMetroScoreTracker.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MahMetroScoreTracker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MahMetroScoreTracker" Height="500" Width="750"
+                TitleCaps="False"
+                ResizeMode="CanResizeWithGrip"
+                GlowBrush="{DynamicResource AccentColorBrush}"
+                Icon="D:\VisualStudio2015\Projects\MahMetroScoreTracker\MahMetroScoreTracker\Resources\football48.png">
+
+    <controls:MetroWindow.RightWindowCommands>
+        <controls:WindowCommands>
+            <Button Command="{Binding Settings}">Settings</Button>
+            <Button Command="{Binding Publish}">Publish</Button>
+        </controls:WindowCommands>
+    </controls:MetroWindow.RightWindowCommands>
+
+    <controls:MetroWindow.IconTemplate>
+        <DataTemplate>
+            <Image Source="D:\VisualStudio2015\Projects\MahMetroScoreTracker\MahMetroScoreTracker\Resources\football-transparent48.png"></Image>
+        </DataTemplate>
+    </controls:MetroWindow.IconTemplate>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Menu IsMainMenu="True" Grid.Row="0">
+            <MenuItem Header="_View">
+                <MenuItem Header="_Matches" Command="{Binding ViewMatches}"></MenuItem>
+                <MenuItem Header="_Stats" Command="{Binding ViewMatches}"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <ContentPresenter Grid.Row="1" x:Name="MainArea"></ContentPresenter>
+        <StatusBar Grid.Row="2">
+            <StatusBarItem>ScoreTracker</StatusBarItem>
+            <Separator Style="{StaticResource MetroStatusBarSeparator}"></Separator>
+            <StatusBarItem>Some status message</StatusBarItem>
+        </StatusBar>
     </Grid>
-</Window>
+</controls:MetroWindow>
