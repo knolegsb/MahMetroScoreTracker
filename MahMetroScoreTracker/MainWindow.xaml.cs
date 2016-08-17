@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using MahMetroScoreTracker.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
